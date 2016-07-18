@@ -10,6 +10,8 @@ dependencies:
 test:
   override:
     - make
+    - git config --global user.email "tristram@oaten.name"
+    - git config --global user.name "circlebot"
     - git add index.html
     - git commit -m 'updated index'
     - git push
