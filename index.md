@@ -1,6 +1,7 @@
 <article>
 
 # Hacking Mandarin
+<p class="subtitle">Tristram Oaten &amp; Rongjie Wang</p>
 Pinyin ftw. Reading characters is fine, and can be picked up during vocab learning.
 
 ## Pronouns. ("I, he, she you, you(pl), we they")
