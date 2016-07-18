@@ -1,3 +1,20 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker pull jagregory/pandoc
+
 test:
   override:
     - make
+
+deployment:
+  hub:
+    branch: master
+    commands:
+     - git add index.html
+     - git commit -m 'updated index'
+     - git push
