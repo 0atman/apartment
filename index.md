@@ -4,7 +4,7 @@
 <p class="subtitle">Tristram Oaten &amp; Rongjie Wang</p>
 
 <section>
-Pinyin ftw. Reading characters is fine, and can be picked up during vocab learning.
+Pinyin ftw. Reading characters is fine, and can be picked up during vocab learning<label for="aside" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="aside" class="margin-toggle"/><span class="sidenote"></span>.
 
 ## Pronouns. ("I, he, she you, you(pl), we they")
 
