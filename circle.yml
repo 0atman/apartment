@@ -10,11 +10,6 @@ dependencies:
 test:
   override:
     - make
-
-deployment:
-  hub:
-    branch: master
-    commands:
-     - git add index.html
-     - git commit -m 'updated index'
-     - git push
+    - git add index.html
+    - git commit -m 'updated index'
+    - git push
