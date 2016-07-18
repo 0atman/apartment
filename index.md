@@ -1,3 +1,5 @@
+<article>
+
 # Hacking Mandarin
 Pinyin ftw. Reading characters is fine, and can be picked up during vocab learning.
 
@@ -31,3 +33,5 @@ Pronouns are straightforward in Mandarin, due to not needing gender.
 ## places like resturant, hospital house school etc
 
 ## some curse words in order to NOT say them. along with slang and common practice words.
+
+</article>
