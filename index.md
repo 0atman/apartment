@@ -1,5 +1,4 @@
 # Hacking Mandarin
-
 Pinyin ftw. Reading characters is fine, and can be picked up during vocab learning.
 
 # Pronouns. ("I, he, she you, you(pl), we they")
