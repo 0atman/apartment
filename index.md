@@ -3,7 +3,7 @@ Pinyin ftw. Reading characters is fine, and can be picked up during vocab learni
 
 # Pronouns. ("I, he, she you, you(pl), we they")
 
-Pronouns are straightforward in Mandarin,
+Pronouns are straightforward in Mandarin, due to not needing gender.
 # Common salutations, ("boy, girl, woman, man young, old")
 
 # learn "to be" words, (am, is, are) and possession words.
