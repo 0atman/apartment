@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>My Apartment</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+    body {
+        background-color: black;
+    }
+    </style>
+</head>
+
+<body>
+    <img src="http://i.imgur.com/R8KtNVb.jpg" alt="" usemap="#homemap"/>
+
+    <map name="homemap">
+        <area alt="COMPUTER" shape="poly" coords="845,242,821,253,768,225,768,202,806,182,808,174,831,180,836,202,846,216" href="#" data-toggle="modal" data-target="#computerModal">
+        <area alt="PLAYER" data-target="#playerModal" data-toggle="modal" href="#" shape="poly" coords="767,352,764,339,755,333,754,323,762,311,777,316,789,324,805,356,792,377,801,394,793,399,781,387,772,385,771,401,753,405,751,399,761,390,760,374,756,365"/>
+        <area alt="ART" data-target="#artModal" data-toggle="modal" href="#" shape="poly" coords="1035,523,1083,545,1078,634,1031,611"/>
+        <area alt="EXPERIMENT" data-target="#experimentModal" data-toggle="modal" title="Experiment" href="#" shape="poly" coords="888,358,885,326,886,307,878,321,858,313,857,361,876,363"/>
+        <area alt="VID" data-target="#vidModal" data-toggle="modal" href="#" title="Vids" shape="poly" coords="949,258,935,269,928,275,922,270,920,252,898,240,869,244,861,236,861,213,874,200,872,189,886,183,898,180,934,202,950,224"/>
+        <area alt="STORE" data-target="#storeModal" data-toggle="modal" href="#" shape="poly" coords="1076,233,1206,297,1209,374,1183,392,1057,331,1056,240"/>
+        <area alt="TABLE" data-target="#tableModal" data-toggle="modal" href="#" shape="poly" coords="541,343,546,299,546,254,533,249,530,269,514,267,469,280,451,256,456,254,441,260,450,288,440,295,433,260,414,269,423,305,413,316,420,323,418,359,432,368,454,358,473,356,500,366"/>
+    </map>
+
+
+    <!-- Experiment -->
+    <div class="modal fade" id="experimentModal" tabindex="-1" role="dialog" aria-labelledby="experimentModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="experimentModalLabel">Experiment</h4>
+          </div>
+          <div class="modal-body">
+              <embed src="http://web.clojurerepl.com" width="100%" height="600">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Computer -->
+    <div class="modal fade" id="computerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Todo List</h4>
+          </div>
+          <div class="modal-body">
+              <embed src="https://todoist.com/app" width="100%" height="600">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player -->
+    <div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="playerModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="playerModalLabel">Player</h4>
+          </div>
+          <div class="modal-body">
+              <embed src="https://habitica.com/#/tasks" width="100%" height="600">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Art -->
+    <div class="modal fade" id="artModal" tabindex="-1" role="dialog" aria-labelledby="artModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="artModalLabel">Art</h4>
+          </div>
+          <div class="modal-body">
+              <embed src="http://0atman.deviantart.com" width="100%" height="600">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- VID -->
+    <div class="modal fade" id="vidModal" tabindex="-1" role="dialog" aria-labelledby="vidModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="vidModalLabel">Vids</h4>
+          </div>
+          <div class="modal-body">
+              <embed src="https://www.youtube.com/embed/bS5P_LAqiVg" width="100%" height="330">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORE -->
+    <div class="modal fade" id="storeModal" tabindex="-1" role="dialog" aria-labelledby="storeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="storeModalLabel">Storage</h4>
+          </div>
+          <div class="modal-body">
+              <embed src="https://transfer.sh/" width="100%" height="600">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="modal fade" id="tableModal" tabindex="-1" role="dialog" aria-labelledby="tableModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="tableModalLabel">Conference Table</h4>
+          </div>
+          <div class="modal-body">
+              <embed src="https://webchat.freenode.net/" width="100%" height="600">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 id="helptext">
+        Mouse around to find out what you can do. Click me to hide this message.
+    </h1>
+
+</body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="./jquery.maphilight.js"></script>
+
+<script>
+  $('#helptext').hide();
+  $('img[usemap]').maphilight();
+  $('#helptext').click(function() {
+      $('#helptext').fadeOut(1000);
+  })
+
+  if (localStorage.getItem("ishelploaded1") === null) {
+    $('#helptext').fadeIn(1000);
+  }
+  localStorage.setItem('ishelploaded1', 1);
+</script>
+
+</html>
