@@ -1,8 +1,4 @@
-var Phaser
-var player
-var term
-var termPopup
-var playerTween
+var Phaser, player, term, termPopup, playerTween, text, popupTween
 
 var game = new Phaser.Game(1880, 1050, Phaser.AUTO, 'phaser-example',
   { preload: preload, create: create, update: update })
@@ -15,9 +11,16 @@ function preload () {
   game.load.image('apartment', 'apartment.png')
 
   game.load.image('termPopup', 'term.png')
+
+  game.load.bitmapFont(
+    'gem',
+    'assets/fonts/gem.png',
+    'assets/fonts/gem.xml'
+  )
 }
 
 function create () {
+  game.input.keyboard.addCallbacks(this, null, null, keyPress)
   game.add.sprite(0, 0, 'apartment')
   player = game.add.sprite(1048, 368, 'player')
   game.physics.enable(player, Phaser.Physics.ARCADE)
@@ -47,6 +50,14 @@ function create () {
   termPopup.events.onInputDown.add(closeTerm, this)
 
   playerTween = game.add.tween(player)
+  popupTween = game.add.tween(termPopup.size)
+  var style = {
+    font: '32px monospace',
+    fill: '#1dffab',
+    tabs: [ 164, 120, 80 ]
+  }
+  text = game.add.bitmapText(650, 310, 'gem', 'DISCONNECTED', 32)
+  text.visible = false
 }
 
 function update () {
@@ -78,11 +89,18 @@ function moveToTerm () {
 function openTerm () {
   game.add.tween(termPopup.scale).to(
     { x: 1, y: 1 }, 200, Phaser.Easing.Exponential.Out, true
-  )
+  ).onComplete.add(function () {
+    text.visible = true
+  })
 }
 
 function closeTerm () {
   game.add.tween(termPopup.scale).to(
     { x: 0, y: 0 }, 200, Phaser.Easing.Exponential.In, true
   )
+  text.visible = false
+}
+
+function keyPress (char) {
+  text.text = text.text + char
 }
