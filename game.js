@@ -1,4 +1,5 @@
 var Phaser, player, term, termPopup, playerTween, text, calendar, monthNames
+var monthText
 
 var game = new Phaser.Game(1880, 1050, Phaser.AUTO, 'phaser-example',
   { preload: preload, create: create, update: update })
@@ -41,15 +42,15 @@ function create () {
     'calendar',
     [
       '000000000000000',
-      '02020202020F0F0',
+      '09090909090E0E0',
       '000000000000000',
-      '02020202020F0F0',
+      '09090909090E0E0',
       '000000000000000',
-      '02020202020F0F0',
+      '09090909090E0E0',
       '000000000000000',
-      '02020202020F0F0',
+      '09090909090E0E0',
       '000000000000000',
-      '0F0E09999999990',
+      '0E0E09999999990',
       '000000000000000'
     ],
     32,
@@ -71,7 +72,7 @@ function create () {
     'Hestia',
     'Dionysus'
   ]
-  calendar = game.add.sprite(32, 32, 'calendar')
+  calendar = game.add.sprite(332, 232, 'calendar')
   calendar.alpha = 0.8
   term = game.add.button(1200, 200, 'term', moveToTerm, this, 2, 1, 0)
   term.alpha = 0.5
@@ -90,13 +91,51 @@ function create () {
 
   text = game.add.bitmapText(650, 310, 'gem', 'DISCONNECTED', 32)
   text.visible = false
-  game.debug.text(
-    (new Date()).getFullYear() + '-' +
-    getFixedMonth() + '-' +
-    getFixedDate(),
-    50,
-    30
+
+  monthText = game.add.bitmapText(
+    160,
+    288,
+    'gem',
+    getFixedDate() + ' ' +
+    monthNames[getFixedMonth()] + ' ' +
+    (new Date()).getFullYear(),
+    32
   )
+
+  calendar.addChild(monthText)
+
+  function getX () {
+    var x = getFixedDate() - (Math.ceil((getFixedDate() / 7) - 1) * 7)
+    return x * 64 - 32
+  }
+
+  function getY () {
+    var y = Math.ceil(getFixedDate() / 7)
+    return y * 64 - 32
+  }
+
+  game.create.texture('calToday', ['3'], 32, 32, 0)
+
+  calendar.addChild(
+      game.add.sprite(
+        getX(),
+        getY(),
+        'calToday'
+      )
+  )
+  calendar.addChild(
+      game.add.bitmapText(
+        32,
+        32,
+        'gem',
+        '01  02  03  04  05  06  07' + '\n\n' +
+        '08  09  10  11  12  13  14' + '\n\n' +
+        '15  16  17  18  19  20  21' + '\n\n' +
+        '22  23  24  25  26  27  28' + '\n\n' +
+        'NY  LD',
+        32
+      )
+    )
 }
 
 function update () {
@@ -144,7 +183,7 @@ function keyPress (char) {
   text.text = text.text + char
 }
 
-function getDay () {
+function getFixedDay () {
   var now = new Date()
   var start = new Date(now.getFullYear(), 0, 0)
   var diff = now - start
@@ -152,11 +191,12 @@ function getDay () {
   return Math.floor(diff / oneDay)
 }
 
+// special case NY day and leap year
 function getFixedMonth () {
-  var day = getDay()
+  var day = getFixedDay()
   return Math.floor(day / 28)
 }
 
 function getFixedDate () {
-  return getDay() - (getFixedMonth() * 28) - 1
+  return getFixedDay() - (getFixedMonth() * 28) - 1
 }
