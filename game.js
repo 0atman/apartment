@@ -1,4 +1,4 @@
-var Phaser, player, term, termPopup, playerTween, text
+var Phaser, player, term, termPopup, playerTween, text, calendar
 
 var game = new Phaser.Game(1880, 1050, Phaser.AUTO, 'phaser-example',
   { preload: preload, create: create, update: update })
@@ -40,23 +40,24 @@ function create () {
   game.create.texture(
     'calendar',
     [
-    	'000000000000000',
-    	'02020202020F0F0',
-    	'000000000000000',
-    	'02020202020F0F0',
-    	'000000000000000',
-    	'02020202020F0F0',
-    	'000000000000000',
-    	'02020202020F0F0',
-    	'000000000000000',
-    	'0F0E09999999990',
-    	'000000000000000'
+      '000000000000000',
+      '02020202020F0F0',
+      '000000000000000',
+      '02020202020F0F0',
+      '000000000000000',
+      '02020202020F0F0',
+      '000000000000000',
+      '02020202020F0F0',
+      '000000000000000',
+      '0F0E09999999990',
+      '000000000000000'
     ],
     32,
     32,
     0
   )
-  calendar = game.add.sprite(32,32, 'calendar')
+  calendar = game.add.sprite(32, 32, 'calendar')
+  calendar.alpha = 0.8
   term = game.add.button(1200, 200, 'term', moveToTerm, this, 2, 1, 0)
   term.alpha = 0.5
   term.anchor.set(0.5)
