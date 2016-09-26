@@ -1,4 +1,4 @@
-var Phaser, player, term, termPopup, playerTween, text, popupTween
+var Phaser, player, term, termPopup, playerTween, text
 
 var game = new Phaser.Game(1880, 1050, Phaser.AUTO, 'phaser-example',
   { preload: preload, create: create, update: update })
@@ -36,6 +36,27 @@ function create () {
     '20002222'
   ]
   game.create.texture('term', termData, 4, 4, 0)
+
+  game.create.texture(
+    'calendar',
+    [
+    	'000000000000000',
+    	'02020202020F0F0',
+    	'000000000000000',
+    	'02020202020F0F0',
+    	'000000000000000',
+    	'02020202020F0F0',
+    	'000000000000000',
+    	'02020202020F0F0',
+    	'000000000000000',
+    	'0F0E09999999990',
+    	'000000000000000'
+    ],
+    32,
+    32,
+    0
+  )
+  calendar = game.add.sprite(32,32, 'calendar')
   term = game.add.button(1200, 200, 'term', moveToTerm, this, 2, 1, 0)
   term.alpha = 0.5
   term.anchor.set(0.5)
@@ -50,14 +71,16 @@ function create () {
   termPopup.events.onInputDown.add(closeTerm, this)
 
   playerTween = game.add.tween(player)
-  popupTween = game.add.tween(termPopup.size)
-  var style = {
-    font: '32px monospace',
-    fill: '#1dffab',
-    tabs: [ 164, 120, 80 ]
-  }
+
   text = game.add.bitmapText(650, 310, 'gem', 'DISCONNECTED', 32)
   text.visible = false
+  game.debug.text(
+    (new Date()).getFullYear() + '-' +
+    getFixedMonth() + '-' +
+    getFixedDate(),
+    50,
+    30
+  )
 }
 
 function update () {
@@ -103,4 +126,21 @@ function closeTerm () {
 
 function keyPress (char) {
   text.text = text.text + char
+}
+
+function getDay () {
+  var now = new Date()
+  var start = new Date(now.getFullYear(), 0, 0)
+  var diff = now - start
+  var oneDay = 1000 * 60 * 60 * 24
+  return Math.floor(diff / oneDay)
+}
+
+function getFixedMonth () {
+  var day = getDay()
+  return Math.floor(day / 28)
+}
+
+function getFixedDate () {
+  return getDay() - (getFixedMonth() * 28) - 1
 }
