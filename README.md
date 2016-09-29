@@ -1,3 +1,15 @@
-`WORK IN PROGRESS`
+# webpack ES6 demo
 
-Until I replace them with my own work, this game contains assets from [Shadowrun Returns](https://en.wikipedia.org/wiki/Shadowrun_Returns), [630leosa](http://630leosa.deviantart.com/art/Marvin-the-depressed-robot-141140966) and [cool-retro-term](https://github.com/Swordfish90/cool-retro-term). All of which I love.
+A small demo project that shows how to use webpack for client-side development in ECMAScript 6.
+
+## Installation
+
+* Install  [node](https://nodejs.org)
+* run `npm install`
+
+## Usage
+
+* `npm run watch` to start Webpack in watch mode - will recompile when you change a file.
+* open `index.html` in a browser. 
+* Change or add files in `es6` folder. `main.js` is the entry point.
+* Reload the browser when you have made a change.
