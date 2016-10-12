@@ -1,23 +1,19 @@
 /* global Phaser */
-var player, term, termPopup, playerTween, text, calendar, monthNames, monthText
 
-var game = new Phaser.Game(1880, 1050, Phaser.AUTO, 'phaser-example',
+import {
+  getFixedDate, getFixedMonth, getX, getY
+} from './ifc.js'
+
+let player, term, termPopup, playerTween, text, calendar, monthNames, monthText
+
+const game = new Phaser.Game(1880, 1050, Phaser.AUTO, 'phaser-example',
   { preload: preload, create: create, update: update })
 
 function preload () {
-  // attribution: http://630leosa.deviantart.com/art/Marvin-the-depressed-robot-141140966
   game.load.image('player', 'assets/marvin.gif')
-
-  // attribution: shadowrun apartment bg
   game.load.image('apartment', 'assets/apartment.png')
-
   game.load.image('termPopup', 'assets/term.png')
-
-  game.load.bitmapFont(
-    'gem',
-    'assets/fonts/gem.png',
-    'assets/fonts/gem.xml'
-  )
+  game.load.bitmapFont('gem', 'assets/fonts/gem.png', 'assets/fonts/gem.xml')
 }
 
 function create () {
@@ -26,21 +22,21 @@ function create () {
   player = game.add.sprite(1048, 368, 'player')
   game.physics.enable(player, Phaser.Physics.ARCADE)
 
-  var termData = [
-    '00000000',
-    '00000000',
-    '00000000',
-    '20000000',
-    '02000000',
-    '00200000',
-    '02000000',
-    '20002222'
-  ]
-  game.create.texture('term', termData, 4, 4, 0)
+  game.create.texture(
+    'term', [
+      '00000000',
+      '00000000',
+      '00000000',
+      '20000000',
+      '02000000',
+      '00200000',
+      '02000000',
+      '20002222'
+    ], 4, 4, 0
+  )
 
   game.create.texture(
-    'calendar',
-    [
+    'calendar', [
       '000000000000000',
       '09090909090E0E0',
       '000000000000000',
@@ -52,24 +48,11 @@ function create () {
       '000000000000000',
       '0E0E09999999990',
       '000000000000000'
-    ],
-    32,
-    32,
-    0
+    ], 32, 32, 0
   )
   monthNames = [
-    'Zeus',
-    'Hera',
-    'Poseidon',
-    'Demeter',
-    'Athena',
-    'Apollo',
-    'Artemis',
-    'Ares',
-    'Aphrodite',
-    'Hephaestus',
-    'Hermes',
-    'Hestia',
+    'Zeus', 'Hera', 'Poseidon', 'Demeter', 'Athena', 'Apollo',
+    'Artemis', 'Ares', 'Aphrodite', 'Hephaestus', 'Hermes', 'Hestia',
     'Dionysus'
   ]
   calendar = game.add.sprite(332, 232, 'calendar')
@@ -103,16 +86,6 @@ function create () {
   )
 
   calendar.addChild(monthText)
-
-  function getX () {
-    var x = getFixedDate() - (Math.ceil((getFixedDate() / 7) - 1) * 7)
-    return x * 64 - 32
-  }
-
-  function getY () {
-    var y = Math.ceil(getFixedDate() / 7)
-    return y * 64 - 32
-  }
 
   game.create.texture('calToday', ['3'], 32, 32, 0)
 
@@ -181,22 +154,4 @@ function closeTerm () {
 
 function keyPress (char) {
   text.text = text.text + char
-}
-
-function getFixedDay () {
-  var now = new Date()
-  var start = new Date(now.getFullYear(), 0, 0)
-  var diff = now - start
-  var oneDay = 1000 * 60 * 60 * 24
-  return Math.floor(diff / oneDay)
-}
-
-// special case NY day and leap year
-function getFixedMonth () {
-  var day = getFixedDay()
-  return Math.floor(day / 28)
-}
-
-function getFixedDate () {
-  return getFixedDay() - (getFixedMonth() * 28) - 1
 }
